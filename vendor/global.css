@@ -1,0 +1,26 @@
+/* CSS Reset */
+*, h1 {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Global Variables */
+:root {
+  --text-color: #fff;
+  --bg-color: #2A2C2F;
+  --font-size-base: 16px;
+}
+
+/* Base Global Styles */
+html {
+  font-size: var(--font-size-base); /* Enables rem scaling */
+}
+
+.page {
+  font-family: 'Inter', sans-serif;
+  background-color: #2A2C2F;
+}
+
+
+
