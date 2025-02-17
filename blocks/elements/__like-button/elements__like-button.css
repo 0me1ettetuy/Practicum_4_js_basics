@@ -6,3 +6,7 @@
   background: url(../../../images/heart.svg) no-repeat center;
   cursor: pointer;
 }
+
+.elements__like-button:hover {
+  opacity: .5;
+}

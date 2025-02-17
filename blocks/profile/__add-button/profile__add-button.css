@@ -5,3 +5,7 @@
   background: url(../../../images/plus.png) no-repeat center;
   cursor: pointer;
 }
+
+.profile__add-button:hover {
+  opacity: .6;
+}
