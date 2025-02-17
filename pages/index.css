@@ -25,10 +25,11 @@
 /* elements */
 @import url(../blocks/elements/elements.css);
 @import url(../blocks/elements/__element/elements__element.css);
+@import url(../blocks/elements/__image-wrap/elements__image-wrap.css);
 @import url(../blocks/elements/__image/elements__image.css);
+@import url(../blocks/elements/__text-wrap/elements__text-wrap.css);
 @import url(../blocks/elements/__name/elements__name.css);
 @import url(../blocks/elements/__like-button/elements__like-button.css);
-@import url(../blocks/elements/__like-button-image/elements__like-button-image.css);
 /* footer */
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__copyright/footer__copyright.css);
