@@ -4,3 +4,10 @@
   height: 1px;
   background-color: #545454;
 }
+
+@media (max-width: 480px) {
+  .header__line {
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+  }
+}

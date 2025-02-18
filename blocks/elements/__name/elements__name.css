@@ -5,3 +5,15 @@
   white-space: nowrap;
   overflow: hidden;
 }
+
+@media screen and (max-width: 768px) {
+  .elements__name {
+    font-size: 22px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .elements__name {
+    font-size: 24px;
+  }
+}
