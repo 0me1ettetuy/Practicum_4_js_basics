@@ -7,29 +7,32 @@
   <title>Mesto</title>
 </head>
 <body class="page">
+  <!-- popup -->
   <div class="popup">
-    <div class="popup__container">
-      <button class="popup__close"></button>
-      <form action="" class="popup__form">
-        <h2 class="popup__form-heading">Редактировать профиль</h2>
-        <fieldset class="popup__fieldset">
-          <input type="text" class="popup__input" name="nickname" placeholder="Никнейм" required>
-          <input type="text" class="popup__input" name="bio" placeholder="Био" required>
-        </fieldset>
-        <input type="submit" class="popup__submit" value="Сохранить">
-      </form>
+    <div class="popup__wrap">
+      <div class="popup__container">
+        <button class="popup__close"></button>
+        <form action="" class="popup__form">
+          <h2 class="popup__form-heading">Редактировать профиль</h2>
+          <fieldset class="popup__fieldset">
+            <input type="text" class="popup__input" name="nickname" placeholder="Никнейм" required>
+            <input type="text" class="popup__input" name="bio" placeholder="Био" required>
+          </fieldset>
+          <input type="submit" class="popup__submit" value="Сохранить">
+        </form>
+      </div>
     </div>
   </div>
-
+  
   <div class="content">
-
+<!-- header -->
     <header class="header">
       <img src="./images/Mesto_logo.png" alt="Mesto Logo" class="header__logo">
       <hr class="header__line">
     </header>
-
+<!-- main -->
     <main class="main">
-
+<!-- profile -->
       <section class="profile">
         <div class="profile__left">
           <img src="./images/ava.jpg" alt="profile picture" class="profile__avatar">
@@ -43,7 +46,7 @@
         </div>
         <button class="profile__add-button"></button>
       </section>
-
+<!-- elements -->
       <section class="elements">
 
         <div class="elements__element">
@@ -104,10 +107,12 @@
       </section>
 
     </main>
-
+<!-- footer -->
     <footer class="footer"><p class="footer__copyright">© 2025 Mesto Russia</p></footer>
 
   </div>
+
+
 
   <script src="./script/index.js"></script>
 
