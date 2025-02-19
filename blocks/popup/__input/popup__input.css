@@ -12,3 +12,8 @@
 .popup__input:focus {
   outline: none;
 }
+
+.popup__input::placeholder {
+  color: rgba(0, 0, 0, 0.8);
+  font-family: inherit;
+}
