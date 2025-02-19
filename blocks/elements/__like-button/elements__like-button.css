@@ -1,0 +1,12 @@
+.elements__like-button {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  border: none;
+  background: url(../../../images/heart.svg) no-repeat center;
+  cursor: pointer;
+}
+
+.elements__like-button:hover {
+  opacity: .5;
+}

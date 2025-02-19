@@ -8,7 +8,7 @@
 /* Global Variables */
 :root {
   --text-color: #fff;
-  --bg-color: #2A2C2F;
+  --bg-color: #000;
   --font-size-base: 16px;
 }
 
@@ -19,7 +19,7 @@ html {
 
 .page {
   font-family: 'Inter', sans-serif;
-  background-color: #2A2C2F;
+  background-color: var(--bg-color);
 }
 
 

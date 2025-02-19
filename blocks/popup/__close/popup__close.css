@@ -1,0 +1,20 @@
+.popup__close {
+  border: none;
+  width: 32px;
+  height: 32px;
+  background: url(../../../images/close_icon.png) no-repeat center;
+  background-size: cover;
+  position: absolute;
+  top: -32px;
+  right: -32px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 480px) {
+  .popup__close {
+    width: 20px;
+    height: 20px;
+    right: 0;
+  }
+
+}

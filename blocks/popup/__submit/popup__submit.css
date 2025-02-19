@@ -1,0 +1,14 @@
+.popup__submit {
+  height: 50px;
+  background-color: #000;
+  border: none;
+  font-family: inherit;
+  font-size: 18px;
+  font-weight: 400;
+  color: #fff;
+  cursor: pointer;
+}
+
+.popup__submit:hover {
+  opacity: .8;
+}
