@@ -6,6 +6,9 @@ const popupEditCloseButton = popupEdit.querySelector('.popup__close');
 const popupEditSaveButton = popupEdit.querySelector('.popup__submit');
 const popupEditInputName = popupEdit.querySelector('.popup__input_type_name');
 const popupEditInputBio = popupEdit.querySelector('.popup__input_type_bio');
+const popupNewImageSaveButton = popupNewImage.querySelector('.popup__submit');
+const popupNewImageInputName = popupNewImage.querySelector('.popup__input_type_name');
+const popupNewImageInputLink = popupNewImage.querySelector('.popup__input_type_bio');
 
 const profile = page.querySelector('.profile');
 const profileEditButton = page.querySelector('.profile__edit-button');
@@ -51,15 +54,27 @@ function openPopup(popup) {
   popup.classList.add('popup__opened');
 }
 
-initialCards.forEach((card) => {
+function createElement(obj) {
   const cloneElement = elementTemplate.cloneNode(true);
-  cloneElement.querySelector('.elements__name').textContent = card.name;
-  cloneElement.querySelector('.elements__image').src =  card.link;
-  elements.append(cloneElement);
-});
+  cloneElement.querySelector('.elements__name').textContent = obj.name;
+  cloneElement.querySelector('.elements__image').src =  obj.link;
+  return cloneElement;
+}
+
+function renderPage() {
+  initialCards.forEach((card) => {
+    elements.append(createElement(card));
+  });
+}
+
+renderPage();
 
 profileAddButton.addEventListener('click', () => openPopup(popupNewImage));
-popupNewImageCloseButton.addEventListener('click', () => closePopup(popupNewImage));
+popupNewImageCloseButton.addEventListener('click', () => {
+  popupNewImageInputName.value = '';
+  popupNewImageInputLink.value = '';
+  closePopup(popupNewImage);
+});
 
 profileEditButton.addEventListener('click', function() {
   openPopup(popupEdit);
@@ -75,3 +90,24 @@ popupEditSaveButton.addEventListener('click', function(evt) {
   closePopup(popupEdit);
 });
 
+popupNewImageSaveButton.addEventListener('click', (evt) => {
+  evt.preventDefault()
+  const newElement = {
+    name: popupNewImageInputName.value,
+    link: popupNewImageInputLink.value
+  }
+  popupNewImageInputName.value = '';
+  popupNewImageInputLink.value = '';
+  elements.prepend(createElement(newElement));
+  closePopup(popupNewImage);
+});
+
+elements.addEventListener('click', (evt) => {
+  if (evt.target.classList.contains('elements__like-button')) {
+    evt.target.classList.toggle('elements__like-button_type_active');
+  }
+});
+
+
+
+//

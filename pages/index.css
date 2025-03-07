@@ -41,6 +41,7 @@
 @import url(../blocks/elements/__text-wrap/elements__text-wrap.css);
 @import url(../blocks/elements/__name/elements__name.css);
 @import url(../blocks/elements/__like-button/elements__like-button.css);
+@import url(../blocks/elements/__like-button/_type/elements__like-button_type_active.css);
 /* footer */
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__copyright/footer__copyright.css);
