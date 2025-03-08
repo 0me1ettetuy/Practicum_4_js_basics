@@ -1,6 +1,8 @@
 const page = document.querySelector('.page');
 const popupEdit = page.querySelector('.popup_type_edit');
 const popupNewImage = page.querySelector('.popup_type_new-image');
+const popupImage = page.querySelector('.popup_type_image');
+const popupImageCloseButton = popupImage.querySelector('.popup__close');
 const popupNewImageCloseButton = popupNewImage.querySelector('.popup__close');
 const popupEditCloseButton = popupEdit.querySelector('.popup__close');
 const popupEditSaveButton = popupEdit.querySelector('.popup__submit');
@@ -58,6 +60,7 @@ function createElement(obj) {
   const cloneElement = elementTemplate.cloneNode(true);
   cloneElement.querySelector('.elements__name').textContent = obj.name;
   cloneElement.querySelector('.elements__image').src =  obj.link;
+  cloneElement.querySelector('.elements__image').alt = obj.name;
   return cloneElement;
 }
 
@@ -105,8 +108,17 @@ popupNewImageSaveButton.addEventListener('click', (evt) => {
 elements.addEventListener('click', (evt) => {
   if (evt.target.classList.contains('elements__like-button')) {
     evt.target.classList.toggle('elements__like-button_type_active');
+  } else if (evt.target.classList.contains('elements__delete-button')) {
+    evt.target.closest('.elements__element').remove();
+  } else if (evt.target.classList.contains('elements__image')) {
+    popupImage.querySelector('.popup__image').src = evt.target.src;
+    popupImage.querySelector('.popup__image').alt = evt.target.alt;
+    popupImage.querySelector('.popup__description').textContent = evt.target.alt;
+    openPopup(popupImage);
   }
 });
+
+popupImageCloseButton.addEventListener('click', () => closePopup(popupImage));
 
 
 
