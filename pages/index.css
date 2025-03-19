@@ -19,6 +19,7 @@
 @import url(../blocks/popup/__container/_type/popup__container_type_image.css);
 @import url(../blocks/popup/__image/popup__image.css);
 @import url(../blocks/popup/__description/popup__description.css);
+@import url(../blocks/popup/__span/popup__span.css);
 /* content */
 @import url(../blocks/content/content.css);
 /* header */

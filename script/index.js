@@ -53,6 +53,7 @@ function closePopup(popup) {
 }
 
 function openPopup(popup) {
+  console.log(popup)
   popup.classList.add('popup__opened');
 }
 

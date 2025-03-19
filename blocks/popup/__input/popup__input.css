@@ -7,6 +7,7 @@
   font-size: 14px;
   font-weight: 400;
   color: #000;
+  padding-bottom: 13px;
 }
 
 .popup__input:focus {
@@ -16,4 +17,8 @@
 .popup__input::placeholder {
   color: rgba(0, 0, 0, 0.8);
   font-family: inherit;
+}
+
+.popup__input_type_error {
+  border-bottom: 1px solid #FF0000;
 }

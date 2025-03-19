@@ -14,11 +14,17 @@
       <div class="popup__wrap">
         <div class="popup__container">
           <button class="popup__close"></button>
-          <form action="" class="popup__form">
+          <form action="" class="popup__form form">
             <h2 class="popup__form-heading">Редактировать профиль</h2>
             <fieldset class="popup__fieldset">
-              <input type="text" class="popup__input popup__input_type_name" name="nickname" placeholder="" required>
-              <input type="text" class="popup__input popup__input_type_bio" name="bio" placeholder="" required>
+              <div class="popup__field-container">
+                <input id="nickname" type="text" class="popup__input popup__input_type_name" name="nickname" placeholder="" minlength="2" maxlength="40" required>
+                <span class="popup__span popup__nickname-error"></span>
+              </div>
+              <div class="popup__field-container">
+                <input id="bio" type="text" class="popup__input popup__input_type_bio" name="bio" placeholder="" minlength="2" maxlength="200" required>
+                <span class="popup__span popup__bio-error"></span>
+              </div>
             </fieldset>
             <input type="submit" class="popup__submit" value="Сохранить">
           </form>
@@ -31,11 +37,17 @@
       <div class="popup__wrap">
         <div class="popup__container">
           <button class="popup__close"></button>
-          <form action="" class="popup__form">
+          <form action="" class="popup__form form">
             <h2 class="popup__form-heading">Новое место</h2>
             <fieldset class="popup__fieldset">
-              <input type="text" class="popup__input popup__input_type_name" name="nickname" placeholder="Название" required>
-              <input type="text" class="popup__input popup__input_type_bio" name="bio" placeholder="Ссылка на картинку" required>
+              <div class="popup__field-container">
+                <input id="place" type="text" class="popup__input popup__input_type_name" name="nickname" placeholder="Название" required>
+                <span class="popup__span popup__place-error"></span>
+              </div>
+              <div class="popup__field-container">
+                <input id="url" type="text" class="popup__input popup__input_type_bio" name="bio" placeholder="Ссылка на картинку" required>
+                <span class="popup__span popup__url-error"></span>
+              </div>
             </fieldset>
             <input type="submit" class="popup__submit" value="Создать">
           </form>
@@ -156,7 +168,7 @@
   </template>
 
 
-
+  <script src="./script/validation.js"></script>
   <script src="./script/index.js"></script>
 
 </body>
