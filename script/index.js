@@ -121,6 +121,18 @@ elements.addEventListener('click', (evt) => {
 
 popupImageCloseButton.addEventListener('click', () => closePopup(popupImage));
 
-
+const popupList = page.querySelectorAll('.popup');
+popupList.forEach((popup) => {
+  popup.addEventListener('click', (evt) => {
+    if (evt.target.classList.contains('popup__wrap')) {
+      closePopup(popup);
+    }
+  });
+  page.addEventListener('keydown', (evt) => {
+    if (evt.key === 'Escape') {
+      closePopup(popup);
+    }
+  });
+});
 
 //
