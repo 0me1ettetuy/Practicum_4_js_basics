@@ -1,3 +1,6 @@
+import Card from './Card.js';
+import FormValidator from './FormValidator.js';
+
 const page = document.querySelector('.page');
 const popupEdit = page.querySelector('.popup_type_edit');
 const popupNewImage = page.querySelector('.popup_type_new-image');
@@ -48,16 +51,16 @@ const initialCards = [
   }
 ];
 
-function closePopup(popup) {
-  popup.classList.remove('popup__opened');
-}
+// function closePopup(popup) {
+//   popup.classList.remove('popup__opened');
+// }
 
-function openPopup(popup) {
-  console.log(popup)
-  popup.classList.add('popup__opened');
-}
+// function openPopup(popup) {
+//   popup.classList.add('popup__opened');
+// }
 
 profileAddButton.addEventListener('click', () => openPopup(popupNewImage));
+
 popupNewImageCloseButton.addEventListener('click', () => {
   popupNewImageInputName.value = '';
   popupNewImageInputLink.value = '';
@@ -69,6 +72,7 @@ profileEditButton.addEventListener('click', function() {
   popupEditInputName.value = profileName.textContent;
   popupEditInputBio.value = profileBio.textContent;
 });
+
 popupEditCloseButton.addEventListener('click', () => closePopup(popupEdit));
 
 popupEditSaveButton.addEventListener('click', function(evt) {
@@ -108,57 +112,6 @@ popupList.forEach((popup) => {
   });
 });
 
-//
-class Card {
-  constructor(data, templateSelector) {
-    this._data = data;
-    this._templateSelector = templateSelector;
-  }
-
-  _getTemplate() {
-    const template = document.querySelector(this._templateSelector).content.querySelector('.elements__element').cloneNode(true);
-    return template;
-  }
-
-  _setEventListeners() {
-    this._cardElement.addEventListener('click', (evt) => {
-      if (evt.target.classList.contains('elements__like-button')) {
-        this._handleLikeClick();
-      } else if (evt.target.classList.contains('elements__delete-button')) {
-        this._handleDeleteClick();
-      } else if (evt.target.classList.contains('elements__image')) {
-        this._handleImageClick();
-      }
-    });
-  }
-
-  generate() {
-     this._cardElement = this._getTemplate();
-     this._setEventListeners();
-     this._cardElement.querySelector('.elements__name').textContent = this._data.name;
-     this._cardElement.querySelector('.elements__image').src = this._data.link;
-     this._cardElement.querySelector('.elements__image').alt = this._data.name;
-
-     return this._cardElement;
-  }
-
-  _handleLikeClick() {
-    this._cardElement.querySelector('.elements__like-button').classList.toggle('elements__like-button_type_active');
-  }
-
-  _handleDeleteClick() {
-    this._cardElement.remove();
-  }
-
-  _handleImageClick() {
-    const popupImage = document.querySelector('.popup_type_image');
-    popupImage.querySelector('.popup__image').src = this._data.link;
-    popupImage.querySelector('.popup__image').alt = this._data.name;
-    popupImage.querySelector('.popup__description').textContent = this._data.name;
-    openPopup(popupImage);
-  }
-
-}
 
 function renderPage() {
   initialCards.forEach((data) => {
@@ -169,3 +122,29 @@ function renderPage() {
 }
 
 renderPage();
+
+const formsList = [
+  {
+    formSelector: '.form__edit',
+    inputSelector: '.popup__input',
+    submitButtonSelector: '.popup__submit',
+    inactiveButtonClass: 'popup__submit_inactive',
+    inputErrorClass: 'popup__input_type_error',
+    errorClass: 'popup__error_visible'
+  },
+  {
+    formSelector: '.form__new-image',
+    inputSelector: '.popup__input',
+    submitButtonSelector: '.popup__submit',
+    inactiveButtonClass: 'popup__submit_inactive',
+    inputErrorClass: 'popup__input_type_error',
+    errorClass: 'popup__error_visible'
+  },
+];
+
+function validateForms(formsList) {
+  formsList.forEach((formData) => {
+    const formValidator = new FormValidator(formData);
+    formValidator.enableValidation();
+  });
+}
