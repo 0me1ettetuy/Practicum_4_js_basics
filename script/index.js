@@ -51,13 +51,13 @@ const initialCards = [
   }
 ];
 
-// function closePopup(popup) {
-//   popup.classList.remove('popup__opened');
-// }
+function closePopup(popup) {
+  popup.classList.remove('popup__opened');
+}
 
-// function openPopup(popup) {
-//   popup.classList.add('popup__opened');
-// }
+function openPopup(popup) {
+  popup.classList.add('popup__opened');
+}
 
 profileAddButton.addEventListener('click', () => openPopup(popupNewImage));
 
@@ -148,3 +148,5 @@ function validateForms(formsList) {
     formValidator.enableValidation();
   });
 }
+
+validateForms(formsList);
