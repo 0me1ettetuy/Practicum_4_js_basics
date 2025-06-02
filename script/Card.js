@@ -1,9 +1,10 @@
 // import { ImagePopupHandler } from './PopupHandler.js';
 
 export default class Card {
-  constructor(data, templateSelector) {
+  constructor(data, templateSelector, handleCardClick) {
     this._data = data;
     this._templateSelector = templateSelector;
+    this._handleCardClick = handleCardClick;
   }
 
   _getTemplate() {
@@ -42,13 +43,14 @@ export default class Card {
   }
 
   _handleImageClick() {
-    const popupImage = document.querySelector('.popup_type_image');
-    popupImage.querySelector('.popup__image').src = this._data.link;
-    popupImage.querySelector('.popup__image').alt = this._data.name;
-    popupImage.querySelector('.popup__description').textContent = this._data.name;
-    openPopup(popupImage);
-    // const imagePopupHandler = new ImagePopupHandler();
-    // imagePopupHandler.open(this._data.name, this._data.link);
+    this._handleCardClick(this._data);
+    // const popupImage = document.querySelector('.popup_type_image');
+    // popupImage.querySelector('.popup__image').src = this._data.link;
+    // popupImage.querySelector('.popup__image').alt = this._data.name;
+    // popupImage.querySelector('.popup__description').textContent = this._data.name;
+    // openPopup(popupImage);
+    // // const imagePopupHandler = new ImagePopupHandler();
+    // // imagePopupHandler.open(this._data.name, this._data.link);
   }
 
 }
