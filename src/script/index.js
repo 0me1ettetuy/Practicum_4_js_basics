@@ -202,8 +202,8 @@ popupWithImage.setEventListeners();
 /* edit-profile popup */
 const popupEdit = new PopupWithForm(
   popupEditSel,
-  ({ username, bio }) => {
-    userInfo.setUserInfo({ username, bio });
+  ({ nickname, bio }) => {  // Changed from 'username' to 'nickname'
+    userInfo.setUserInfo({ username: nickname, bio });  // Map nickname to username
     popupEdit.close();
   }
 );
@@ -212,8 +212,8 @@ popupEdit.setEventListeners();
 /* new-card popup */
 const popupNewCard = new PopupWithForm(
   popupNewSel,
-  ({ name, link }) => {
-    const cardEl = createCard({ name, link });
+  ({ nickname, bio }) => {
+    const cardEl = createCard({ name: nickname, link: bio });
     section.addItem(cardEl);
     popupNewCard.close();
   }
@@ -224,7 +224,12 @@ popupNewCard.setEventListeners();
 const section = new Section(
   {
     items: initialCards,
-    renderer: (item) => createCard(item),
+    renderer: (item) => {const card = new Card(
+    item,
+    cardTemplateSel,
+    ({ name, link }) => popupWithImage.open({ name, link })
+  );
+  return card.generate();},
   },
   elementsContainer
 );
@@ -243,8 +248,8 @@ function createCard(data) {
 /* ----------  event bindings ---------- */
 profileEditBtn.addEventListener('click', () => {
   const { username, bio } = userInfo.getUserInfo();
-  page.querySelector(`${popupEditSel} .popup__input_type_name`).value = username;
-  page.querySelector(`${popupEditSel} .popup__input_type_bio`).value  = bio;
+  document.querySelector(`${popupEditSel} .popup__input_type_name`).value = username;
+  document.querySelector(`${popupEditSel} .popup__input_type_bio`).value = bio;
   popupEdit.open();
 });
 
