@@ -1,0 +1,11 @@
+.profile__avatar-wrapper {
+  position: relative;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.profile__avatar-wrapper:hover .profile__avatar-edit-button {
+  opacity: 1;
+}

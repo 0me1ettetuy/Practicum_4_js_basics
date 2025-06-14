@@ -1,10 +1,11 @@
-// import { ImagePopupHandler } from './PopupHandler.js';
+import { userApi } from "./constants";
 
 export default class Card {
-  constructor(data, templateSelector, handleCardClick) {
+  constructor(data, templateSelector, handleCardClick, onDeleteClick) {
     this._data = data;
     this._templateSelector = templateSelector;
     this._handleCardClick = handleCardClick;
+    this._onDeleteClick = onDeleteClick;
   }
 
   _getTemplate() {
@@ -30,16 +31,18 @@ export default class Card {
      this._cardElement.querySelector('.elements__name').textContent = this._data.name;
      this._cardElement.querySelector('.elements__image').src = this._data.link;
      this._cardElement.querySelector('.elements__image').alt = this._data.name;
+     this._cardElement.querySelector('.elements__like-counter').textContent = this._data.likes.length;
 
      return this._cardElement;
   }
 
   _handleLikeClick() {
     this._cardElement.querySelector('.elements__like-button').classList.toggle('elements__like-button_type_active');
+    userApi.toggleLike(this._data._id, this._data.likes > 0);
   }
 
   _handleDeleteClick() {
-    this._cardElement.remove();
+    this._onDeleteClick(this._data._id, this._cardElement);
   }
 
   _handleImageClick() {
